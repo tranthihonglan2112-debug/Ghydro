@@ -115,3 +115,4 @@ Nếu không tìm thấy, tool dùng config mặc định (đã tích hợp sẵ
 ## ⚠️ Lưu ý
 - Kết quả có thể khác nhau tùy vào game và phiên bản dump.cs.
 - Tool không đảm bảo tìm ra 100% hàm cần thiết.
+-Offset khi trong các file được xuất ra 'Không Chính Xác',khuyến nghị nên sao chép tên hàm rồi vào 'dump.cs'để lấy chính xác.
