@@ -20,7 +20,7 @@ Công cụ phân tích tĩnh (static analysis) file game Unity/Android: tự đ�
 - File đầu vào: `GhidroZip.zip` (chứa `libil2cpp.so` và `dump.cs`) đặt trong thư mục `Downloads`.
 
 ## 📥 Tải về
-Vào tab **Releases** để tải file `main.exe` và chạy trực tiếp.
+Vào tab **Releases** để tải file `Ghydro.exe` và chạy trực tiếp.
 
 ## ⚠️ Lưu ý
 - Đây là công cụ hỗ trợ phân tích, không đảm bảo tìm ra 100% hàm cần thiết.
@@ -49,7 +49,7 @@ A static analysis tool for Unity/Android games that automatically detects import
 - Input file: `GhidroZip.zip` (containing `libil2cpp.so` and `dump.cs`) placed in the `Downloads` folder.
 
 ## 📥 Download
-Go to the **Releases** tab to download `main.exe` and run it directly.
+Go to the **Releases** tab to download `Ghydro.exe` and run it directly.
 
 ## ⚠️ Notes
 - This is an analysis assistance tool; it does not guarantee finding 100% of the needed functions.
@@ -106,13 +106,12 @@ Tool tự động tìm file `blacklist.json` và `whitelist.json` ở 2 vị tr�
 1. Cùng thư mục với `Ghydro.exe`.
 2. Trong thư mục `Downloads`.
 
-Nếu không tìm thấy, tool dùng config mặc định (đã tích hợp sẵn trong code).
+Nếu không tìm thấy, tool dùng config mặc định (đã tích hợp sẵn trong code,nhưng không tối ưu).
 
 **Muốn tùy chỉnh?**
 - Sửa `blacklist.json` để thêm class không muốn phân tích.
 - Sửa `whitelist.json` để thêm keyword muốn ưu tiên.
 
 ## ⚠️ Lưu ý
-- Tool cần quyền đọc file trong thư mục `Downloads`.
 - Kết quả có thể khác nhau tùy vào game và phiên bản dump.cs.
 - Tool không đảm bảo tìm ra 100% hàm cần thiết.
