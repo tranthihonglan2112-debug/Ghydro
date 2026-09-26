@@ -1,4 +1,6 @@
 VIETNAM:
+--------------------------------------
+
 #Ghydro
 Công cụ phân tích tĩnh (static analysis) file game Unity/Android: tự động phát hiện hàm tiền tệ, chữ ký, bảo vệ, chỉ số nhân vật từ `dump.cs` + `libil2cpp.so`. Hỗ trợ 13 nhóm chức năng, chấm điểm heuristic, đa luồng, cache thông minh, xuất báo cáo chi tiết.
 
@@ -23,7 +25,10 @@ Vào tab **Releases** để tải file `main.exe` và chạy trực tiếp.
 ## ⚠️ Lưu ý
 - Đây là công cụ hỗ trợ phân tích, không đảm bảo tìm ra 100% hàm cần thiết.
 - Nếu Windows Defender cảnh báo, hãy bấm **"More info"** → **"Run anyway"**.
+
+
 English:
+------------------------------
 # Ghydro
 
 A static analysis tool for Unity/Android games that automatically detects important functions related to currency, signatures, protection, and character stats from `dump.cs` + `libil2cpp.so`. Supports 13 feature categories, heuristic scoring, multi-threading, smart caching, and detailed report exports.
@@ -49,3 +54,65 @@ Go to the **Releases** tab to download `main.exe` and run it directly.
 ## ⚠️ Notes
 - This is an analysis assistance tool; it does not guarantee finding 100% of the needed functions.
 - If Windows Defender warns you, click **"More info"** → **"Run anyway"**.
+  ------------------‐-----------
+# 📖 Hướng dẫn sử dụng Ghydro
+
+## 📋 Yêu cầu
+- Windows 64-bit
+- File `GhidroZip.zip` (chứa `libil2cpp.so` và `dump.cs`) đặt trong thư mục `Downloads`
+- (Tùy chọn) File `blacklist.json` và `whitelist.json` cùng thư mục với `Ghydro.exe`
+
+## 🚀 Các bước sử dụng
+
+### Bước 1: Chuẩn bị file đầu vào
+1. Đặt file `GhidroZip.zip` vào thư mục `Downloads` (`C:\Users\<TênBạn>\Downloads`).
+2. File zip phải chứa 2 file:
+   - `libil2cpp.so`
+   - `dump.cs`
+
+### Bước 2: Chạy tool
+1. Tải `Ghydro.exe` từ tab **Releases**.
+2. Double-click để chạy.
+3. Nếu Windows Defender cảnh báo, bấm **"More info"** → **"Run anyway"**.
+
+### Bước 3: Chọn chế độ phân tích
+Tool sẽ hiện menu:
+- **BASIC**: Phân tích nhanh 3 nhóm chính (tiền tệ, chữ ký, bảo vệ).
+- **FULL**: Phân tích tất cả 13 nhóm (lâu hơn).
+- **CUSTOM**: Tự chọn nhóm muốn phân tích.
+- **V0.4**: Dùng khi có file `v04_AI.txt` (kết quả từ AI) để sắp xếp.
+
+### Bước 4: Đợi tool chạy
+Tool sẽ tự động:
+1. Giải nén `GhidroZip.zip`.
+2. Phân tích `dump.cs`.
+3. Chấm điểm hàm bằng bytecode ARM64.
+4. Xuất báo cáo.
+
+### Bước 5: Xem kết quả
+Tool xuất 5 file trong thư mục `Downloads`:
+
+| File | Nội dung |
+|---|---|
+| `v02_bytecode_candidates.txt` | Danh sách ứng viên từ V0.2 |
+| `v03_top30_currency.txt` | Top 30 hàm tiền tệ |
+| `v03_top30_protection.txt` | Top 30 hàm bảo vệ |
+| `v03_full_evaluations.txt` | Đánh giá đầy đủ theo category |
+| `all_in_raw_dump.txt` | Raw dump tất cả hàm |
+
+## ⚙️ Cấu hình nâng cao
+
+Tool tự động tìm file `blacklist.json` và `whitelist.json` ở 2 vị trí:
+1. Cùng thư mục với `Ghydro.exe`.
+2. Trong thư mục `Downloads`.
+
+Nếu không tìm thấy, tool dùng config mặc định (đã tích hợp sẵn trong code).
+
+**Muốn tùy chỉnh?**
+- Sửa `blacklist.json` để thêm class không muốn phân tích.
+- Sửa `whitelist.json` để thêm keyword muốn ưu tiên.
+
+## ⚠️ Lưu ý
+- Tool cần quyền đọc file trong thư mục `Downloads`.
+- Kết quả có thể khác nhau tùy vào game và phiên bản dump.cs.
+- Tool không đảm bảo tìm ra 100% hàm cần thiết.
